@@ -1,0 +1,12 @@
+security:
+  enable_authenticator_manager: true
+
+  firewalls:
+    api:
+      pattern: ^/v1/api
+      stateless: true
+      custom_authenticators:
+        - App\Security\BearerAuthenticator
+
+  access_control:
+    - { path: ^/v1/api, roles: ROLE_USER }
